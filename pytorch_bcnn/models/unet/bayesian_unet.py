@@ -15,6 +15,48 @@ from ._helper import _default_dropout_param
 from ...functions import crop
 
 
+# default parameters
+
+_default_conv_param = {
+    'name':'conv',
+    'kernel_size': 3,
+    'stride': 1,
+    'padding': 1,
+    'padding_mode': 'reflect',
+    'initialW': {'name': 'he_normal'},
+    'initial_bias': {'name': 'zero'},
+}
+
+_default_upconv_param = {
+    'name':'deconv',
+    'kernel_size': 3,
+    'stride': 2,
+    'padding': 0,
+    # 'padding_mode': 'reflect', # NOTE: unsupported in PyTorch
+    'initialW': {'name': 'bilinear'},
+    'initial_bias': {'name': 'zero'},
+}
+
+_default_pool_param = {
+    'name': 'max',
+    'kernel_size': 2,
+    'stride': 2,
+}
+
+_default_norm_param = {
+    'name': 'batch'
+}
+
+_default_activation_param = {
+    'name': 'relu'
+}
+
+_default_dropout_param = {
+    'name': 'dropout',
+    'p': .5,
+}
+
+
 def _check_dropout_param(param):
 
     name = param['name']
